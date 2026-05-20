@@ -1,1 +1,998 @@
-<div class="hero-right fade-in"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Assistant Portfolio — Nhi Le</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1f2937;
+    --cream: #f9f6fb;
+    --warm: #eef6ff;
+    --accent: #f08ab1;
+    --accent2: #8fb8e8;
+    --gold: #f7b7d2;
+    --muted: #6b7280;
+    --white: #ffffff;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    font-weight: 300;
+  }
+
+  /* NAVIGATION */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(249,246,251,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(31,41,55,0.08);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color .2s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+
+  .remote-badge-nav {
+    background: var(--accent);
+    color: var(--white);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding: 8rem 3rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(8rem, 18vw, 18rem);
+    font-weight: 900;
+    color: rgba(240,138,177,0.08);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero-left {
+    position: relative;
+    z-index: 2;
+  }
+
+  .remote-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--accent);
+    color: var(--white);
+    padding: 0.55rem 1.2rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    animation: pulse 2s infinite;
+  }
+
+  .remote-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  @keyframes pulse {
+    0%,100% {
+      box-shadow: 0 0 0 0 rgba(240,138,177,0.35);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(240,138,177,0);
+    }
+  }
+
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1;
+    font-weight: 900;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-subtitle {
+    color: var(--accent);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    margin-bottom: 1.6rem;
+  }
+
+  .hero-desc {
+    max-width: 44ch;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    text-decoration: none;
+    padding: 0.9rem 2rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transition: all .2s ease;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent);
+  }
+
+  .btn-outline {
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .hero-right {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .profile-frame {
+    width: 420px;
+    height: 520px;
+    background: linear-gradient(145deg, #eef6ff, #fce7f3);
+    border: 2px dashed rgba(143,184,232,0.45);
+    border-radius: 28px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 14px 14px 0 rgba(143,184,232,0.18);
+  }
+
+  .profile-frame::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(240,138,177,0.25);
+    border-radius: 22px;
+  }
+
+  .profile-placeholder {
+    text-align: center;
+    z-index: 2;
+  }
+
+  .profile-placeholder span {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .profile-placeholder p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 3rem;
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-num {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .divider {
+    width: 3rem;
+    height: 3px;
+    background: var(--accent);
+    margin-top: 1rem;
+  }
+
+  /* ABOUT */
+  #about {
+    background: var(--white);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-card {
+    background: var(--cream);
+    padding: 2rem;
+    border-radius: 18px;
+    border: 1px solid rgba(31,41,55,0.06);
+  }
+
+  .about-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-card p {
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 0.95rem;
+  }
+
+  .experience-boxes {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .exp-box {
+    background: var(--warm);
+    padding: 1.5rem;
+    border-radius: 14px;
+    border-left: 4px solid var(--accent2);
+  }
+
+  .exp-box h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .exp-box p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 0.88rem;
+  }
+
+  /* SERVICES */
+  #services {
+    background: var(--warm);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .svc-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 18px;
+    border-top: 4px solid var(--accent2);
+    transition: transform .2s ease;
+  }
+
+  .svc-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .svc-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .svc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .svc-desc {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 0.9rem;
+  }
+
+  /* PORTFOLIO */
+  #portfolio {
+    background: var(--cream);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 2rem;
+  }
+
+  .portfolio-card {
+    background: var(--white);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(31,41,55,0.08);
+    transition: transform .2s ease;
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .portfolio-thumb {
+    height: 220px;
+    background: linear-gradient(135deg, #eef6ff, #fce7f3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+  }
+
+  .portfolio-content {
+    padding: 1.8rem;
+  }
+
+  .portfolio-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  .portfolio-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .portfolio-desc {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .portfolio-result {
+    background: rgba(240,138,177,0.12);
+    color: var(--accent);
+    padding: 0.8rem 1rem;
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    font-size: 0.84rem;
+    font-weight: 500;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--warm);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .contact-info p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 2rem;
+    max-width: 42ch;
+  }
+
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-item {
+    background: var(--white);
+    padding: 1rem 1.5rem;
+    border-radius: 14px;
+    border: 1px solid rgba(31,41,55,0.06);
+  }
+
+  .contact-label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .contact-value {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .contact-form {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 18px;
+    border: 1px solid rgba(31,41,55,0.06);
+  }
+
+  .contact-form h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(31,41,55,0.1);
+    background: var(--cream);
+    font-family: inherit;
+    resize: none;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--accent);
+  }
+
+  .submit-btn {
+    background: var(--ink);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+    transition: background .2s ease;
+  }
+
+  .submit-btn:hover {
+    background: var(--accent);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  footer span {
+    color: var(--accent);
+  }
+
+  /* FADE ANIMATION */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+
+    nav {
+      padding: 1rem 1.5rem;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+    }
+
+    #hero,
+    .about-grid,
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #hero {
+      padding-top: 7rem;
+    }
+
+    .profile-frame {
+      width: 100%;
+      max-width: 420px;
+      height: 480px;
+    }
+
+    .hero-bg-text {
+      display: none;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Nhi Le · VA</div>
+
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="remote-badge-nav">Remote Ready</div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-text">VA</div>
+
+  <div class="hero-left fade-in">
+    <div class="remote-pill">
+      <span class="remote-dot"></span>
+      Available for Remote Work
+    </div>
+
+    <div class="hero-tag">
+      Virtual Assistant · Administrative Support · Digital Operations
+    </div>
+
+    <h1>Nhi Le</h1>
+
+    <div class="hero-subtitle">
+      Your Reliable Virtual Assistant.
+    </div>
+
+    <p class="hero-desc">
+      Helping businesses stay organized, productive, and consistent through streamlined admin support, inbox management, scheduling, content coordination, and remote operations.
+    </p>
+
+    <div class="hero-cta-row">
+      <a href="#contact" class="btn-primary">Hire Me</a>
+      <a href="#portfolio" class="btn-outline">View Portfolio</a>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header fade-in">
+    <span class="section-num">01 — About Me</span>
+    <h2 class="section-title">Professional Background</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="about-grid fade-in">
+
+    <div class="about-card">
+      <h3>Who I Am</h3>
+
+      <p>
+        I am a detail-oriented Virtual Assistant focused on helping businesses manage operations efficiently through remote support. My experience includes administrative coordination, content management, scheduling, customer communication, and workflow organization.
+      </p>
+
+      <br>
+
+      <p>
+        I combine communication skills, organization, and digital tools to support entrepreneurs, agencies, and growing brands in maintaining smooth daily operations while improving productivity and consistency.
+      </p>
+    </div>
+
+    <div class="experience-boxes">
+
+      <div class="exp-box">
+        <h4>Administrative Support</h4>
+        <p>
+          Calendar management, travel coordination, documentation, file organization, and task tracking for remote teams.
+        </p>
+      </div>
+
+      <div class="exp-box">
+        <h4>Content & Social Media</h4>
+        <p>
+          Scheduling content, organizing campaigns, creating post structures, and supporting multi-platform communication.
+        </p>
+      </div>
+
+      <div class="exp-box">
+        <h4>Remote Workflow Management</h4>
+        <p>
+          Experienced with Notion, Google Workspace, Trello, Slack, Canva, and productivity systems for remote collaboration.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+
+  <div class="section-header fade-in">
+    <span class="section-num">02 — Services</span>
+    <h2 class="section-title">What I Can Help With</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="services-grid fade-in">
+
+    <div class="svc-card">
+      <div class="svc-icon">📧</div>
+      <div class="svc-title">Inbox Management</div>
+      <div class="svc-desc">
+        Organizing emails, filtering priorities, responding professionally, and maintaining inbox efficiency.
+      </div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-icon">🗓️</div>
+      <div class="svc-title">Calendar & Scheduling</div>
+      <div class="svc-desc">
+        Managing appointments, meetings, reminders, travel coordination, and schedule optimization.
+      </div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-icon">📱</div>
+      <div class="svc-title">Social Media Support</div>
+      <div class="svc-desc">
+        Content scheduling, social coordination, engagement tracking, and platform organization.
+      </div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-icon">📂</div>
+      <div class="svc-title">Administrative Assistance</div>
+      <div class="svc-desc">
+        File management, document preparation, spreadsheets, reports, and daily operational support.
+      </div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-icon">🤝</div>
+      <div class="svc-title">Customer Communication</div>
+      <div class="svc-desc">
+        Handling client communication, follow-ups, inquiries, and relationship management professionally.
+      </div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-icon">⚡</div>
+      <div class="svc-title">Remote Operations</div>
+      <div class="svc-desc">
+        Supporting remote businesses with workflow coordination, task systems, and productivity optimization.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+
+  <div class="section-header fade-in">
+    <span class="section-num">03 — Featured Work</span>
+    <h2 class="section-title">Selected Projects</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="portfolio-grid fade-in">
+
+    <div class="portfolio-card">
+
+      <div class="portfolio-thumb">
+        Social Media Campaign
+      </div>
+
+      <div class="portfolio-content">
+
+        <div class="portfolio-tag">
+          Content Coordination
+        </div>
+
+        <div class="portfolio-title">
+          Multi-Platform Content Support
+        </div>
+
+        <div class="portfolio-desc">
+          Managed scheduling, post organization, and communication workflows for a growing online brand across Instagram and Facebook.
+        </div>
+
+        <div class="portfolio-result">
+          Increased content consistency and reduced response delays by 40%.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="portfolio-card">
+
+      <div class="portfolio-thumb">
+        Virtual Admin Support
+      </div>
+
+      <div class="portfolio-content">
+
+        <div class="portfolio-tag">
+          Administrative Assistance
+        </div>
+
+        <div class="portfolio-title">
+          Executive Calendar Management
+        </div>
+
+        <div class="portfolio-desc">
+          Organized meetings, schedules, travel planning, and daily coordination for remote business operations.
+        </div>
+
+        <div class="portfolio-result">
+          Improved scheduling efficiency and reduced missed appointments significantly.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="portfolio-card">
+
+      <div class="portfolio-thumb">
+        Customer Support Workflow
+      </div>
+
+      <div class="portfolio-content">
+
+        <div class="portfolio-tag">
+          Client Communication
+        </div>
+
+        <div class="portfolio-title">
+          CRM & Client Follow-Up
+        </div>
+
+        <div class="portfolio-desc">
+          Managed inquiries, follow-up systems, customer responses, and relationship tracking using remote tools.
+        </div>
+
+        <div class="portfolio-result">
+          Improved response time and increased client retention consistency.
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+  <div class="section-header fade-in">
+    <span class="section-num">04 — Contact</span>
+    <h2 class="section-title">Let's Work Together</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="contact-grid fade-in">
+
+    <div class="contact-info">
+
+      <p>
+        I am available for remote freelance projects, long-term collaboration, and virtual assistant support. Feel free to reach out for business inquiries or project discussions.
+      </p>
+
+      <div class="contact-list">
+
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <a class="contact-value" href="mailto:aerikael1112@gmail.com">
+            aerikael1112@gmail.com
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-label">Phone</span>
+          <a class="contact-value" href="tel:0326352270">
+            0326352270
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-label">LinkedIn</span>
+          <a class="contact-value" href="https://linkedin.com" target="_blank">
+            https://linkedin.com
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <form class="contact-form">
+
+      <h3>Send a Message</h3>
+
+      <div class="form-group">
+        <input type="text" placeholder="Your Name">
+      </div>
+
+      <div class="form-group">
+        <input type="email" placeholder="Your Email">
+      </div>
+
+      <div class="form-group">
+        <input type="text" placeholder="Subject">
+      </div>
+
+      <div class="form-group">
+        <textarea rows="5" placeholder="Your Message"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Send Message
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+<footer>
+  Crafted with care · <span>Nhi Le</span> · Virtual Assistant Portfolio
+</footer>
+
+<script>
+
+  // Fade In Animation
+  const faders = document.querySelectorAll('.fade-in');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  faders.forEach(el => observer.observe(el));
+
+  // Hero initial animation
+  document.querySelectorAll('#hero .fade-in').forEach((el, index) => {
+    setTimeout(() => {
+      el.classList.add('visible');
+    }, 150 * index);
+  });
+
+</script>
+
+</body>
+</html>
