@@ -4,995 +4,679 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Virtual Assistant Portfolio — Nhi Le</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
   :root {
-    --ink: #1f2937;
-    --cream: #f9f6fb;
-    --warm: #eef6ff;
-    --accent: #f08ab1;
-    --accent2: #8fb8e8;
-    --gold: #f7b7d2;
-    --muted: #6b7280;
-    --white: #ffffff;
+    --ink: #0a0a0a;
+    --cream: #f5f0e8;
+    --warm: #e8ddd0;
+    --accent: #c8522a;
+    --accent2: #3a5f8a;
+    --gold: #d4a847;
+    --muted: #6b6560;
+    --remote-red: #c8522a;
   }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
     background: var(--cream);
     color: var(--ink);
     font-family: 'DM Sans', sans-serif;
-    overflow-x: hidden;
     font-weight: 300;
+    overflow-x: hidden;
   }
 
-  /* NAVIGATION */
+  /* ── NAV ── */
   nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
     padding: 1.2rem 3rem;
-    background: rgba(249,246,251,0.92);
+    background: rgba(245,240,232,0.92);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(31,41,55,0.08);
+    border-bottom: 1px solid rgba(10,10,10,0.08);
   }
-
   .nav-logo {
     font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
+    font-size: 1.2rem; font-weight: 700; letter-spacing: 0.02em;
   }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a {
-    text-decoration: none;
-    color: var(--ink);
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    transition: color .2s ease;
+    font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none; font-weight: 500;
+    transition: color .2s;
   }
-
-  .nav-links a:hover {
-    color: var(--accent);
-  }
-
+  .nav-links a:hover { color: var(--accent); }
   .remote-badge-nav {
-    background: var(--accent);
-    color: var(--white);
-    padding: 0.4rem 0.9rem;
-    border-radius: 999px;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    background: var(--accent); color: #fff;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em;
+    padding: 0.3rem 0.8rem; border-radius: 2px; text-transform: uppercase;
   }
 
-  /* HERO */
+  /* ── HERO ── */
   #hero {
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: grid; grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: 4rem;
-    padding: 8rem 3rem 5rem;
-    position: relative;
-    overflow: hidden;
+    padding: 8rem 3rem 4rem;
+    position: relative; overflow: hidden;
   }
-
   .hero-bg-text {
-    position: absolute;
-    right: -2rem;
-    top: 50%;
+    position: absolute; right: -2rem; top: 50%;
     transform: translateY(-50%);
     font-family: 'Playfair Display', serif;
-    font-size: clamp(8rem, 18vw, 18rem);
-    font-weight: 900;
-    color: rgba(240,138,177,0.08);
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
+    font-size: clamp(8rem, 18vw, 20rem);
+    font-weight: 900; color: rgba(200,82,42,0.05);
+    line-height: 1; pointer-events: none; user-select: none;
+    letter-spacing: -0.04em;
   }
-
-  .hero-left {
-    position: relative;
-    z-index: 2;
-  }
-
-  .remote-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: var(--accent);
-    color: var(--white);
-    padding: 0.55rem 1.2rem;
-    border-radius: 999px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 1.8rem;
-    animation: pulse 2s infinite;
-  }
-
-  .remote-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: white;
-  }
-
-  @keyframes pulse {
-    0%,100% {
-      box-shadow: 0 0 0 0 rgba(240,138,177,0.35);
-    }
-    50% {
-      box-shadow: 0 0 0 10px rgba(240,138,177,0);
-    }
-  }
-
+  .hero-left { z-index: 1; }
   .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-    margin-bottom: 1.2rem;
+    font-size: 0.75rem; letter-spacing: 0.08em; color: var(--muted);
+    margin-bottom: 1.5rem;
   }
-
+  .hero-tag::before {
+    content: ''; width: 2rem; height: 1px; background: var(--muted);
+  }
   h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(3rem, 6vw, 5.5rem);
-    line-height: 1;
-    font-weight: 900;
-    margin-bottom: 0.6rem;
-    letter-spacing: -0.03em;
+    font-weight: 900; line-height: 1.0;
+    letter-spacing: -0.02em; margin-bottom: 0.3rem;
   }
-
   .hero-subtitle {
-    color: var(--accent);
     font-family: 'Playfair Display', serif;
-    font-style: italic;
     font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-    margin-bottom: 1.6rem;
+    color: var(--accent); font-style: italic;
+    margin-bottom: 1.8rem;
   }
-
   .hero-desc {
-    max-width: 44ch;
-    line-height: 1.8;
-    color: var(--muted);
-    margin-bottom: 2rem;
-    font-size: 1rem;
+    font-size: 1rem; line-height: 1.8; color: var(--muted);
+    max-width: 42ch; margin-bottom: 2.5rem;
   }
-
-  .hero-cta-row {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary,
-  .btn-outline {
-    text-decoration: none;
-    padding: 0.9rem 2rem;
-    border-radius: 4px;
-    font-size: 0.78rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    transition: all .2s ease;
-  }
-
+  .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn-primary {
-    background: var(--ink);
-    color: var(--cream);
+    background: var(--ink); color: var(--cream);
+    padding: 0.85rem 2rem; text-decoration: none;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; border-radius: 2px;
+    transition: background .2s, color .2s;
   }
-
-  .btn-primary:hover {
-    background: var(--accent);
-  }
-
+  .btn-primary:hover { background: var(--accent); }
   .btn-outline {
-    border: 1.5px solid var(--ink);
-    color: var(--ink);
+    border: 1.5px solid var(--ink); color: var(--ink);
+    padding: 0.85rem 2rem; text-decoration: none;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; border-radius: 2px;
+    transition: border-color .2s, color .2s;
   }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-  .btn-outline:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+  /* REMOTE pill hero */
+  .remote-pill {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--accent); color: #fff;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; padding: 0.5rem 1.2rem; border-radius: 100px;
+    margin-bottom: 2rem;
+    animation: pulse-pill 2s ease-in-out infinite;
+  }
+  .remote-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #fff; animation: blink 1.2s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  @keyframes pulse-pill {
+    0%,100%{ box-shadow: 0 0 0 0 rgba(200,82,42,0.4); }
+    50%{ box-shadow: 0 0 0 8px rgba(200,82,42,0); }
   }
 
   .hero-right {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
+    z-index: 1; display: flex; flex-direction: column; align-items: flex-end; gap: 1.5rem;
   }
-
-  .profile-frame {
-    width: 420px;
-    height: 520px;
-    background: linear-gradient(145deg, #eef6ff, #fce7f3);
-    border: 2px dashed rgba(143,184,232,0.45);
-    border-radius: 28px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 14px 14px 0 rgba(143,184,232,0.18);
+  .stat-card {
+    background: #fff; border: 1px solid rgba(10,10,10,0.1);
+    padding: 1.5rem 2rem; text-align: right;
+    width: 220px; border-radius: 4px;
+    box-shadow: 4px 4px 0 var(--warm);
+    animation: floatCard 4s ease-in-out infinite;
   }
-
-  .profile-frame::before {
-    content: '';
-    position: absolute;
-    inset: 20px;
-    border: 1px solid rgba(240,138,177,0.25);
-    border-radius: 22px;
+  .stat-card:nth-child(2) { animation-delay: -1.3s; }
+  .stat-card:nth-child(3) { animation-delay: -2.6s; }
+  @keyframes floatCard {
+    0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)}
   }
-
-  .profile-placeholder {
-    text-align: center;
-    z-index: 2;
-  }
-
-  .profile-placeholder span {
-    display: block;
+  .stat-num {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: var(--accent);
-    margin-bottom: 1rem;
+    font-size: 2.5rem; font-weight: 900; color: var(--accent);
+    line-height: 1;
   }
+  .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.04em; }
 
-  .profile-placeholder p {
-    color: var(--muted);
-    font-size: 0.9rem;
-    letter-spacing: 0.04em;
-  }
-
-  /* SECTIONS */
-  section {
-    padding: 6rem 3rem;
-  }
-
-  .section-header {
-    margin-bottom: 4rem;
-  }
-
+  /* ── SECTIONS ── */
+  section { padding: 6rem 3rem; }
+  .section-header { margin-bottom: 4rem; }
   .section-num {
-    display: block;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
-    color: var(--accent);
-    margin-bottom: 0.6rem;
+    font-size: 0.7rem; color: var(--accent); letter-spacing: 0.15em;
+    margin-bottom: 0.5rem; display: block;
   }
-
   .section-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    line-height: 1.1;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
+    line-height: 1.1; letter-spacing: -0.01em;
   }
-
   .divider {
-    width: 3rem;
-    height: 3px;
-    background: var(--accent);
+    width: 3rem; height: 3px; background: var(--accent);
     margin-top: 1rem;
   }
 
-  /* ABOUT */
-  #about {
-    background: var(--white);
-  }
+  /* ── DASHBOARD / SKILLS ── */
+  #skills { background: var(--ink); color: var(--cream); }
+  #skills .section-title { color: var(--cream); }
+  #skills .section-num { color: var(--gold); }
+  #skills .divider { background: var(--gold); }
 
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
 
-  .about-card {
-    background: var(--cream);
-    padding: 2rem;
-    border-radius: 18px;
-    border: 1px solid rgba(31,41,55,0.06);
+  .skill-group-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem;
   }
-
-  .about-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-
-  .about-card p {
-    color: var(--muted);
-    line-height: 1.9;
-    font-size: 0.95rem;
-  }
-
-  .experience-boxes {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .exp-box {
-    background: var(--warm);
-    padding: 1.5rem;
-    border-radius: 14px;
-    border-left: 4px solid var(--accent2);
-  }
-
-  .exp-box h4 {
-    font-size: 0.95rem;
+  .skill-bar-item { margin-bottom: 1.4rem; }
+  .skill-bar-header {
+    display: flex; justify-content: space-between; align-items: baseline;
     margin-bottom: 0.5rem;
-    font-weight: 600;
   }
-
-  .exp-box p {
-    color: var(--muted);
-    line-height: 1.7;
-    font-size: 0.88rem;
+  .skill-name { font-size: 0.88rem; font-weight: 500; }
+  .skill-pct {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--gold);
   }
-
-  /* SERVICES */
-  #services {
-    background: var(--warm);
+  .skill-bar-track {
+    height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;
   }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
+  .skill-bar-fill {
+    height: 100%; border-radius: 2px; background: var(--accent);
+    width: 0; transition: width 1.2s cubic-bezier(.4,0,.2,1);
   }
+  .skill-bar-fill.soft { background: var(--gold); }
+  .skill-bar-fill.advanced { background: var(--accent2); }
 
+  .advanced-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 1rem;
+    margin-top: 1rem;
+  }
+  .adv-card {
+    border: 1px solid rgba(255,255,255,0.12); padding: 1.2rem 1rem;
+    border-radius: 4px; text-align: center;
+    transition: border-color .2s, background .2s; cursor: default;
+  }
+  .adv-card:hover { border-color: var(--accent2); background: rgba(58,95,138,0.1); }
+  .adv-pct {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 900; color: var(--accent2);
+    line-height: 1;
+  }
+  .adv-label { font-size: 0.72rem; color: rgba(245,240,232,0.6); margin-top: 0.4rem; line-height: 1.3; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--warm); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px,1fr)); gap: 1.5rem; }
   .svc-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 18px;
-    border-top: 4px solid var(--accent2);
-    transition: transform .2s ease;
+    background: var(--cream); padding: 2rem;
+    border-radius: 4px; border-top: 3px solid var(--ink);
+    transition: border-color .2s, transform .2s;
   }
-
-  .svc-card:hover {
-    transform: translateY(-6px);
-  }
-
-  .svc-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .svc-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .svc-desc {
-    color: var(--muted);
-    line-height: 1.8;
-    font-size: 0.9rem;
-  }
-
-  /* PORTFOLIO */
-  #portfolio {
-    background: var(--cream);
-  }
-
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-    gap: 2rem;
-  }
-
-  .portfolio-card {
-    background: var(--white);
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid rgba(31,41,55,0.08);
-    transition: transform .2s ease;
-  }
-
-  .portfolio-card:hover {
-    transform: translateY(-5px);
-  }
-
-  .portfolio-thumb {
-    height: 220px;
-    background: linear-gradient(135deg, #eef6ff, #fce7f3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .svc-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .svc-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .svc-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.7rem; }
+  .svc-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+  .remote-tag {
+    display: inline-block; margin-top: 0.8rem;
     font-family: 'JetBrains Mono', monospace;
-    color: var(--muted);
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
+    font-size: 0.6rem; letter-spacing: 0.12em;
+    background: var(--accent); color: #fff;
+    padding: 0.2rem 0.6rem; border-radius: 2px;
   }
 
-  .portfolio-content {
-    padding: 1.8rem;
+  /* ── TOOLS ── */
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px,1fr)); gap: 1rem; }
+  .tool-chip {
+    border: 1.5px solid var(--ink); padding: 0.7rem 1rem;
+    text-align: center; font-size: 0.78rem; font-weight: 500;
+    border-radius: 3px; letter-spacing: 0.04em;
+    transition: background .15s, color .15s;
+    cursor: default;
   }
+  .tool-chip:hover { background: var(--ink); color: var(--cream); }
+  .tool-chip.ai-tool { border-color: var(--accent); color: var(--accent); }
+  .tool-chip.ai-tool:hover { background: var(--accent); color: #fff; }
 
-  .portfolio-tag {
+  /* ── WHY REMOTE ── */
+  #remote {
+    background: var(--accent); color: #fff;
+    position: relative; overflow: hidden;
+  }
+  #remote::before {
+    content: 'REMOTE';
+    position: absolute; right: -2rem; top: 50%; transform: translateY(-50%);
+    font-family: 'Playfair Display', serif; font-size: clamp(6rem,15vw,14rem);
+    font-weight: 900; color: rgba(255,255,255,0.06); pointer-events: none;
+    line-height: 1;
+  }
+  #remote .section-num { color: rgba(255,255,255,0.6); }
+  #remote .section-title { color: #fff; }
+  #remote .divider { background: #fff; }
+
+  .remote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .remote-card {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    padding: 2rem; border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+  .remote-card-icon { font-size: 1.6rem; margin-bottom: 0.8rem; }
+  .remote-card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .remote-card-desc { font-size: 0.85rem; line-height: 1.7; opacity: 0.85; }
+
+  .timezone-bar {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    padding: 1.5rem 2rem; border-radius: 4px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem; margin-top: 2rem;
+  }
+  .tz-item { text-align: center; }
+  .tz-city { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; }
+  .tz-time { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 500; }
+
+  /* ── PORTFOLIO PROJECTS ── */
+  #projects { background: var(--ink); color: var(--cream); }
+  #projects .section-title { color: var(--cream); }
+  #projects .section-num { color: var(--accent); }
+  .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .project-card {
+    border: 1px solid rgba(255,255,255,0.1); padding: 2rem; border-radius: 4px;
+    transition: border-color .2s;
+  }
+  .project-card:hover { border-color: var(--accent); }
+  .project-tag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.14em;
-    color: var(--accent);
-    margin-bottom: 0.8rem;
-    text-transform: uppercase;
+    font-size: 0.65rem; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 0.8rem;
+  }
+  .project-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .project-desc { font-size: 0.85rem; color: rgba(245,240,232,0.6); line-height: 1.7; }
+  .project-result {
+    margin-top: 1rem; padding: 0.8rem 1rem;
+    background: rgba(200,82,42,0.15); border-left: 3px solid var(--accent);
+    font-size: 0.82rem; font-weight: 500; color: var(--accent);
   }
 
-  .portfolio-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .portfolio-desc {
-    color: var(--muted);
-    line-height: 1.8;
-    font-size: 0.9rem;
-    margin-bottom: 1.2rem;
-  }
-
-  .portfolio-result {
-    background: rgba(240,138,177,0.12);
-    color: var(--accent);
-    padding: 0.8rem 1rem;
-    border-left: 3px solid var(--accent);
-    border-radius: 4px;
-    font-size: 0.84rem;
-    font-weight: 500;
-  }
-
-  /* CONTACT */
-  #contact {
-    background: var(--warm);
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-  }
-
-  .contact-info p {
-    color: var(--muted);
-    line-height: 1.9;
-    margin-bottom: 2rem;
-    max-width: 42ch;
-  }
-
-  .contact-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
+  /* ── CONTACT ── */
+  #contact { background: var(--warm); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-intro { font-size: 1.1rem; line-height: 1.8; color: var(--muted); max-width: 44ch; }
+  .contact-list { display: flex; flex-direction: column; gap: 1.2rem; }
   .contact-item {
-    background: var(--white);
-    padding: 1rem 1.5rem;
-    border-radius: 14px;
-    border: 1px solid rgba(31,41,55,0.06);
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.5rem; background: var(--cream);
+    border-radius: 4px; border: 1px solid rgba(10,10,10,0.08);
+    text-decoration: none; color: var(--ink);
+    transition: border-color .2s, transform .15s;
   }
+  .contact-item:hover { border-color: var(--accent); transform: translateX(4px); }
+  .contact-item-icon { font-size: 1.2rem; }
+  .contact-item-label { font-size: 0.78rem; color: var(--muted); display: block; }
+  .contact-item-val { font-size: 0.9rem; font-weight: 500; }
 
-  .contact-label {
-    display: block;
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.4rem;
-  }
-
-  .contact-value {
-    color: var(--ink);
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .contact-form {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 18px;
-    border: 1px solid rgba(31,41,55,0.06);
-  }
-
-  .contact-form h3 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 1.5rem;
-    font-size: 1.4rem;
-  }
-
-  .form-group {
-    margin-bottom: 1rem;
-  }
-
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 1rem;
-    border-radius: 10px;
-    border: 1px solid rgba(31,41,55,0.1);
-    background: var(--cream);
-    font-family: inherit;
-    resize: none;
-    outline: none;
-  }
-
-  .form-group input:focus,
-  .form-group textarea:focus {
-    border-color: var(--accent);
-  }
-
-  .submit-btn {
-    background: var(--ink);
-    color: var(--white);
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.75rem;
-    transition: background .2s ease;
-  }
-
-  .submit-btn:hover {
-    background: var(--accent);
-  }
-
-  /* FOOTER */
   footer {
-    background: var(--ink);
-    color: rgba(255,255,255,0.6);
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
+    background: var(--ink); color: rgba(245,240,232,0.4);
+    text-align: center; padding: 2rem;
+    font-size: 0.78rem; letter-spacing: 0.06em;
   }
+  footer span { color: var(--accent); }
 
-  footer span {
-    color: var(--accent);
-  }
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
 
-  /* FADE ANIMATION */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .7s ease, transform .7s ease;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-
-    nav {
-      padding: 1rem 1.5rem;
-    }
-
-    .nav-links {
-      display: none;
-    }
-
-    section {
-      padding: 4rem 1.5rem;
-    }
-
-    #hero,
-    .about-grid,
-    .contact-grid {
-      grid-template-columns: 1fr;
-    }
-
-    #hero {
-      padding-top: 7rem;
-    }
-
-    .profile-frame {
-      width: 100%;
-      max-width: 420px;
-      height: 480px;
-    }
-
-    .hero-bg-text {
-      display: none;
-    }
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
+    .hero-right { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+    .stat-card { width: 160px; }
+    section { padding: 4rem 1.5rem; }
+    .skills-grid, .remote-grid, .project-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-bg-text { display: none; }
   }
 </style>
 </head>
-
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Nhi Le · VA</div>
-
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#remote">Remote</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-
-  <div class="remote-badge-nav">Remote Ready</div>
+  <div class="remote-badge-nav">🌐 Remote-Ready</div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-bg-text">VA</div>
-
   <div class="hero-left fade-in">
-    <div class="remote-pill">
-      <span class="remote-dot"></span>
-      Available for Remote Work
-    </div>
-
-    <div class="hero-tag">
-      Virtual Assistant · Administrative Support · Digital Operations
-    </div>
-
+    <div class="remote-pill"><span class="remote-dot"></span> Available for Remote Work</div>
+    <div class="hero-tag">Virtual Assistant · Brand & Data Specialist</div>
     <h1>Nhi Le</h1>
-
-    <div class="hero-subtitle">
-      Your Reliable Virtual Assistant.
-    </div>
-
-    <p class="hero-desc">
-      Helping businesses stay organized, productive, and consistent through streamlined admin support, inbox management, scheduling, content coordination, and remote operations.
-    </p>
-
+    <div class="hero-subtitle">Your Remote Right Hand.</div>
+    <p class="hero-desc">Brand strategy · Data analytics · AI tools · Multi-platform content management. Ready to provide comprehensive support for your business — from any time zone.</p>
     <div class="hero-cta-row">
-      <a href="#contact" class="btn-primary">Hire Me</a>
-      <a href="#portfolio" class="btn-outline">View Portfolio</a>
+      <a href="#contact" class="btn-primary">Work With Me</a>
+      <a href="#projects" class="btn-outline">View Portfolio</a>
     </div>
   </div>
-
-
+  <div class="hero-right fade-in" style="transition-delay:.2s">
+    <div class="stat-card">
+      <div class="stat-num">300%</div>
+      <div class="stat-label">Client ROI achieved (3 months, zero paid ads)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Platforms managed simultaneously (FB, TT, IG, LI…)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Flexible working time zones — 100% Remote</div>
+    </div>
+  </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
+<section id="skills">
   <div class="section-header fade-in">
-    <span class="section-num">01 — About Me</span>
-    <h2 class="section-title">Professional Background</h2>
+    <span class="section-num">01 — Dashboard</span>
+    <h2 class="section-title">Skills Overview</h2>
     <div class="divider"></div>
   </div>
 
-  <div class="about-grid fade-in">
+  <div class="skills-grid fade-in">
+    <div>
+      <div class="skill-group-title">// Soft Skills</div>
 
-    <div class="about-card">
-      <h3>Who I Am</h3>
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Communication & Collaboration</span><span class="skill-pct">92%</span></div><div class="skill-bar-track"><div class="skill-bar-fill soft" data-w="92"></div></div></div>
 
-      <p>
-        I am a detail-oriented Virtual Assistant focused on helping businesses manage operations efficiently through remote support. My experience includes administrative coordination, content management, scheduling, customer communication, and workflow organization.
-      </p>
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Problem Solving</span><span class="skill-pct">90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill soft" data-w="90"></div></div></div>
 
-      <br>
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Time Management</span><span class="skill-pct">95%</span></div><div class="skill-bar-track"><div class="skill-bar-fill soft" data-w="95"></div></div></div>
 
-      <p>
-        I combine communication skills, organization, and digital tools to support entrepreneurs, agencies, and growing brands in maintaining smooth daily operations while improving productivity and consistency.
-      </p>
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Attention to Detail</span><span class="skill-pct">96%</span></div><div class="skill-bar-track"><div class="skill-bar-fill soft" data-w="96"></div></div></div>
+
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Critical Thinking</span><span class="skill-pct">88%</span></div><div class="skill-bar-track"><div class="skill-bar-fill soft" data-w="88"></div></div></div>
+
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Work Ethic</span><span class="skill-pct">98%</span></div><div class="skill-bar-track"><div class="skill-bar-fill soft" data-w="98"></div></div></div>
+
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Adaptability</span><span class="skill-pct">93%</span></div><div class="skill-bar-track"><div class="skill-bar-fill soft" data-w="93"></div></div></div>
+
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Teamwork & Leadership</span><span class="skill-pct">87%</span></div><div class="skill-bar-track"><div class="skill-bar-fill soft" data-w="87"></div></div></div>
     </div>
 
-    <div class="experience-boxes">
+    <div>
+      <div class="skill-group-title">// Essential Hard Skills</div>
 
-      <div class="exp-box">
-        <h4>Administrative Support</h4>
-        <p>
-          Calendar management, travel coordination, documentation, file organization, and task tracking for remote teams.
-        </p>
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Email & Calendar Management</span><span class="skill-pct">95%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="95"></div></div></div>
+
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Data Entry & Document Organization</span><span class="skill-pct">94%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="94"></div></div></div>
+
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Research & Information Synthesis</span><span class="skill-pct">91%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="91"></div></div></div>
+
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Basic Project Management</span><span class="skill-pct">88%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="88"></div></div></div>
+
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Customer Support</span><span class="skill-pct">90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="90"></div></div></div>
+
+      <div class="skill-group-title" style="margin-top:2rem;">// Advanced Skills</div>
+      <div class="advanced-grid">
+        <div class="adv-card"><div class="adv-pct">90%</div><div class="adv-label">Digital Technology</div></div>
+        <div class="adv-card"><div class="adv-pct">85%</div><div class="adv-label">AI Tools</div></div>
+        <div class="adv-card"><div class="adv-pct">82%</div><div class="adv-label">Data Analytics</div></div>
+        <div class="adv-card"><div class="adv-pct">88%</div><div class="adv-label">Sales & Marketing</div></div>
+        <div class="adv-card"><div class="adv-pct">86%</div><div class="adv-label">Content Creation</div></div>
+        <div class="adv-card"><div class="adv-pct">78%</div><div class="adv-label">Graphic Design</div></div>
+        <div class="adv-card"><div class="adv-pct">84%</div><div class="adv-label">Customer Relationship Management</div></div>
       </div>
-
-      <div class="exp-box">
-        <h4>Content & Social Media</h4>
-        <p>
-          Scheduling content, organizing campaigns, creating post structures, and supporting multi-platform communication.
-        </p>
-      </div>
-
-      <div class="exp-box">
-        <h4>Remote Workflow Management</h4>
-        <p>
-          Experienced with Notion, Google Workspace, Trello, Slack, Canva, and productivity systems for remote collaboration.
-        </p>
-      </div>
-
     </div>
-
   </div>
 </section>
 
-<!-- SERVICES -->
 <section id="services">
-
   <div class="section-header fade-in">
     <span class="section-num">02 — Services</span>
-    <h2 class="section-title">What I Can Help With</h2>
+    <h2 class="section-title">What I Do</h2>
     <div class="divider"></div>
   </div>
-
   <div class="services-grid fade-in">
-
     <div class="svc-card">
-      <div class="svc-icon">📧</div>
-      <div class="svc-title">Inbox Management</div>
-      <div class="svc-desc">
-        Organizing emails, filtering priorities, responding professionally, and maintaining inbox efficiency.
-      </div>
+      <div class="svc-icon">📬</div>
+      <div class="svc-title">Admin & Inbox Management</div>
+      <div class="svc-desc">Manage emails, schedules, documents, and reports. Keep everything organized and ensure no deadlines are missed.</div>
+      <span class="remote-tag">REMOTE ✓</span>
     </div>
-
-    <div class="svc-card">
-      <div class="svc-icon">🗓️</div>
-      <div class="svc-title">Calendar & Scheduling</div>
-      <div class="svc-desc">
-        Managing appointments, meetings, reminders, travel coordination, and schedule optimization.
-      </div>
-    </div>
-
     <div class="svc-card">
       <div class="svc-icon">📱</div>
-      <div class="svc-title">Social Media Support</div>
-      <div class="svc-desc">
-        Content scheduling, social coordination, engagement tracking, and platform organization.
-      </div>
+      <div class="svc-title">Social Media & Content</div>
+      <div class="svc-desc">Plan, create, and publish content across multiple platforms: Facebook, TikTok, Instagram, and LinkedIn.</div>
+      <span class="remote-tag">REMOTE ✓</span>
     </div>
-
     <div class="svc-card">
-      <div class="svc-icon">📂</div>
-      <div class="svc-title">Administrative Assistance</div>
-      <div class="svc-desc">
-        File management, document preparation, spreadsheets, reports, and daily operational support.
-      </div>
+      <div class="svc-icon">📊</div>
+      <div class="svc-title">Data & Analytics Support</div>
+      <div class="svc-desc">Collect, process, and visualize data. Deliver campaign performance reports using BigQuery and Google Sheets.</div>
+      <span class="remote-tag">REMOTE ✓</span>
     </div>
-
+    <div class="svc-card">
+      <div class="svc-icon">🤖</div>
+      <div class="svc-title">AI-Powered Workflows</div>
+      <div class="svc-desc">Automate repetitive tasks, create effective prompts, and integrate AI tools into daily workflows.</div>
+      <span class="remote-tag">REMOTE ✓</span>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🎨</div>
+      <div class="svc-title">Brand Strategy & Design Support</div>
+      <div class="svc-desc">Support brand positioning, basic visual design using Canva and Figma, and brand identity development.</div>
+      <span class="remote-tag">REMOTE ✓</span>
+    </div>
     <div class="svc-card">
       <div class="svc-icon">🤝</div>
-      <div class="svc-title">Customer Communication</div>
-      <div class="svc-desc">
-        Handling client communication, follow-ups, inquiries, and relationship management professionally.
-      </div>
+      <div class="svc-title">Customer Relationship</div>
+      <div class="svc-desc">Handle customer care, CRM management, lead tracking, and build professional response workflows.</div>
+      <span class="remote-tag">REMOTE ✓</span>
     </div>
-
-    <div class="svc-card">
-      <div class="svc-icon">⚡</div>
-      <div class="svc-title">Remote Operations</div>
-      <div class="svc-desc">
-        Supporting remote businesses with workflow coordination, task systems, and productivity optimization.
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- PORTFOLIO -->
-<section id="portfolio">
-
+<section id="tools">
   <div class="section-header fade-in">
-    <span class="section-num">03 — Featured Work</span>
-    <h2 class="section-title">Selected Projects</h2>
+    <span class="section-num">03 — Tools</span>
+    <h2 class="section-title">Tech Stack</h2>
     <div class="divider"></div>
   </div>
-
-  <div class="portfolio-grid fade-in">
-
-    <div class="portfolio-card">
-
-      <div class="portfolio-thumb">
-        Social Media Campaign
-      </div>
-
-      <div class="portfolio-content">
-
-        <div class="portfolio-tag">
-          Content Coordination
-        </div>
-
-        <div class="portfolio-title">
-          Multi-Platform Content Support
-        </div>
-
-        <div class="portfolio-desc">
-          Managed scheduling, post organization, and communication workflows for a growing online brand across Instagram and Facebook.
-        </div>
-
-        <div class="portfolio-result">
-          Increased content consistency and reduced response delays by 40%.
-        </div>
-
-      </div>
-    </div>
-
-    <div class="portfolio-card">
-
-      <div class="portfolio-thumb">
-        Virtual Admin Support
-      </div>
-
-      <div class="portfolio-content">
-
-        <div class="portfolio-tag">
-          Administrative Assistance
-        </div>
-
-        <div class="portfolio-title">
-          Executive Calendar Management
-        </div>
-
-        <div class="portfolio-desc">
-          Organized meetings, schedules, travel planning, and daily coordination for remote business operations.
-        </div>
-
-        <div class="portfolio-result">
-          Improved scheduling efficiency and reduced missed appointments significantly.
-        </div>
-
-      </div>
-    </div>
-
-    <div class="portfolio-card">
-
-      <div class="portfolio-thumb">
-        Customer Support Workflow
-      </div>
-
-      <div class="portfolio-content">
-
-        <div class="portfolio-tag">
-          Client Communication
-        </div>
-
-        <div class="portfolio-title">
-          CRM & Client Follow-Up
-        </div>
-
-        <div class="portfolio-desc">
-          Managed inquiries, follow-up systems, customer responses, and relationship tracking using remote tools.
-        </div>
-
-        <div class="portfolio-result">
-          Improved response time and increased client retention consistency.
-        </div>
-
-      </div>
-    </div>
-
+  <p style="color:var(--muted); margin-bottom: 2rem; font-size:.9rem;">All tools can be used fully remotely — no office required.</p>
+  <div class="tools-grid fade-in">
+    <div class="tool-chip ai-tool">Claude AI</div>
+    <div class="tool-chip ai-tool">ChatGPT</div>
+    <div class="tool-chip ai-tool">Gemini</div>
+    <div class="tool-chip ai-tool">Midjourney</div>
+    <div class="tool-chip">Google Workspace</div>
+    <div class="tool-chip">Google BigQuery</div>
+    <div class="tool-chip">Notion</div>
+    <div class="tool-chip">Trello / Asana</div>
+    <div class="tool-chip">Slack</div>
+    <div class="tool-chip">Zoom / Meet</div>
+    <div class="tool-chip">Canva</div>
+    <div class="tool-chip">Figma</div>
+    <div class="tool-chip">Meta Business</div>
+    <div class="tool-chip">TikTok Studio</div>
+    <div class="tool-chip">Buffer / Later</div>
+    <div class="tool-chip">HubSpot CRM</div>
+    <div class="tool-chip">Zapier</div>
+    <div class="tool-chip">Excel / Sheets</div>
+    <div class="tool-chip">Loom</div>
+    <div class="tool-chip">GitHub</div>
   </div>
-
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-
+<section id="remote">
   <div class="section-header fade-in">
-    <span class="section-num">04 — Contact</span>
+    <span class="section-num">04 — Remote</span>
+    <h2 class="section-title">Why Choose a Remote VA?</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="remote-grid fade-in">
+    <div class="remote-card">
+      <div class="remote-card-icon">🌏</div>
+      <div class="remote-card-title">Flexible Time Zones</div>
+      <div class="remote-card-desc">Available to work according to the client’s time zone — Vietnam (GMT+7), Singapore, Australia, and Europe. No geographic barriers.</div>
+    </div>
+    <div class="remote-card">
+      <div class="remote-card-icon">⚡</div>
+      <div class="remote-card-title">Fast & Responsible Communication</div>
+      <div class="remote-card-desc">Committed to responding within 2–4 hours during working hours. Transparent reporting through Notion or Slack.</div>
+    </div>
+    <div class="remote-card">
+      <div class="remote-card-icon">🔒</div>
+      <div class="remote-card-title">Confidential & Professional</div>
+      <div class="remote-card-desc">Strictly protect business information. NDA available when required. Professional work ethics are always a priority.</div>
+    </div>
+    <div class="remote-card">
+      <div class="remote-card-icon">📈</div>
+      <div class="remote-card-title">Reduced Operating Costs</div>
+      <div class="remote-card-desc">No office expenses and no complicated hiring processes. Flexible payment options: hourly, project-based, or monthly.</div>
+    </div>
+  </div>
+  <div class="timezone-bar fade-in">
+    <div class="tz-item"><div class="tz-city">Vietnam</div><div class="tz-time" id="tz-vn">GMT+7</div></div>
+    <div class="tz-item"><div class="tz-city">Singapore</div><div class="tz-time">GMT+8</div></div>
+    <div class="tz-item"><div class="tz-city">Australia (AEST)</div><div class="tz-time">GMT+10</div></div>
+    <div class="tz-item"><div class="tz-city">UK</div><div class="tz-time">GMT+1</div></div>
+    <div class="tz-item"><div class="tz-city">USA (EST)</div><div class="tz-time">GMT-4</div></div>
+    <div class="tz-item" style="color:#fff; font-size:.8rem; max-width:180px; opacity:.8; align-self:center;">✅ Flexible overlap scheduling available across all listed time zones</div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-header fade-in">
+    <span class="section-num">05 — Portfolio</span>
+    <h2 class="section-title">Selected Work</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="project-grid fade-in">
+    <div class="project-card">
+      <div class="project-tag">Brand Strategy · Social Media · REMOTE</div>
+      <div class="project-title">Nàng Tấm — Zero-Ad Content Strategy</div>
+      <div class="project-desc">Built a comprehensive content strategy for the Nàng Tấm brand. Conducted audience research, content scheduling, and multi-platform publishing without using any paid advertising budget.</div>
+      <div class="project-result">📈 300% ROI within 3 months · Zero paid ads</div>
+    </div>
+    <div class="project-card">
+      <div class="project-tag">Data Engineering · Analytics · REMOTE</div>
+      <div class="project-title">Google Cloud / BigQuery Analytics</div>
+      <div class="project-desc">Learned and applied Google Cloud Platform concepts (Course 5): collecting, processing, and storing data in BigQuery. Used Cloud Shell, bq CLI, and built basic data pipelines.</div>
+      <div class="project-result">🎓 Google Skills Certification · Hands-on Labs</div>
+    </div>
+    <div class="project-card">
+      <div class="project-tag">Web Development · Accessibility · REMOTE</div>
+      <div class="project-title">AccessHub — Hackathon 2026</div>
+      <div class="project-desc">HTML/CSS/JS project focused on accessibility for users. Participated in the Code Without Barriers Hackathon 2026 with a product designed to promote inclusion in technology.</div>
+      <div class="project-result">🏆 Code Without Barriers Hackathon 2026</div>
+    </div>
+    <div class="project-card">
+      <div class="project-tag">AI · MCP · Automation · REMOTE</div>
+      <div class="project-title">MCP Server — AI Workflow Builder</div>
+      <div class="project-desc">Built a custom MCP (Model Context Protocol) server using Node.js/JavaScript within the Google Workspace environment. Developed AI-powered tools for workflow automation.</div>
+      <div class="project-result">🤖 learn-mcp-server · Node.js · AI Integration</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-header fade-in">
+    <span class="section-num">06 — Contact</span>
     <h2 class="section-title">Let's Work Together</h2>
     <div class="divider"></div>
   </div>
-
   <div class="contact-grid fade-in">
-
-    <div class="contact-info">
-
-      <p>
-        I am available for remote freelance projects, long-term collaboration, and virtual assistant support. Feel free to reach out for business inquiries or project discussions.
-      </p>
-
-      <div class="contact-list">
-
-        <div class="contact-item">
-          <span class="contact-label">Email</span>
-          <a class="contact-value" href="mailto:aerikael1112@gmail.com">
-            aerikael1112@gmail.com
-          </a>
-        </div>
-
-        <div class="contact-item">
-          <span class="contact-label">Phone</span>
-          <a class="contact-value" href="tel:0326352270">
-            0326352270
-          </a>
-        </div>
-
-        <div class="contact-item">
-          <span class="contact-label">LinkedIn</span>
-          <a class="contact-value" href="https://linkedin.com" target="_blank">
-            https://linkedin.com
-          </a>
-        </div>
-
+    <div>
+      <p class="contact-intro">I am ready to support your business remotely — without geographic limitations or time zone restrictions. Let’s connect and discuss how I can help.</p>
+      <div class="remote-pill" style="margin-top:2rem; width:fit-content;">
+        <span class="remote-dot"></span> Currently available for remote projects
       </div>
-
     </div>
-
-    <form class="contact-form">
-
-      <h3>Send a Message</h3>
-
-      <div class="form-group">
-        <input type="text" placeholder="Your Name">
-      </div>
-
-      <div class="form-group">
-        <input type="email" placeholder="Your Email">
-      </div>
-
-      <div class="form-group">
-        <input type="text" placeholder="Subject">
-      </div>
-
-      <div class="form-group">
-        <textarea rows="5" placeholder="Your Message"></textarea>
-      </div>
-
-      <button type="submit" class="submit-btn">
-        Send Message
-      </button>
-
-    </form>
-
+    <div class="contact-list">
+      <a class="contact-item" href="https://linkedin.com/in/nhiledataanalytics" target="_blank">
+        <span class="contact-item-icon">💼</span>
+        <span><span class="contact-item-label">LinkedIn</span><span class="contact-item-val">nhiledataanalytics</span></span>
+      </a>
+      <a class="contact-item" href="https://github.com/L-TH-NHI" target="_blank">
+        <span class="contact-item-icon">⌨️</span>
+        <span><span class="contact-item-label">GitHub</span><span class="contact-item-val">L-TH-NHI</span></span>
+      </a>
+      <a class="contact-item" href="mailto:hello@nhiledataanalytics.com">
+        <span class="contact-item-icon">✉️</span>
+        <span><span class="contact-item-label">Email</span><span class="contact-item-val">Send a Message</span></span>
+      </a>
+      <a class="contact-item" href="#">
+        <span class="contact-item-icon">📍</span>
+        <span><span class="contact-item-label">Location</span><span class="contact-item-val">Vietnam · Remote Worldwide</span></span>
+      </a>
+    </div>
   </div>
-
 </section>
 
 <footer>
-  Crafted with care · <span>Nhi Le</span> · Virtual Assistant Portfolio
+  Crafted with intention · <span>Nhi Le</span> · Virtual Assistant Portfolio · <span>Remote-First ∞</span>
 </footer>
 
 <script>
-
-  // Fade In Animation
-  const faders = document.querySelectorAll('.fade-in');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {
-    threshold: 0.1
+const bars = document.querySelectorAll('.skill-bar-fill');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      const w = e.target.dataset.w;
+      setTimeout(() => { e.target.style.width = w + '%'; }, 200);
+      observer.unobserve(e.target);
+    }
   });
+}, { threshold: 0.2 });
+bars.forEach(b => observer.observe(b));
 
-  faders.forEach(el => observer.observe(el));
-
-  // Hero initial animation
-  document.querySelectorAll('#hero .fade-in').forEach((el, index) => {
-    setTimeout(() => {
-      el.classList.add('visible');
-    }, 150 * index);
+const faders = document.querySelectorAll('.fade-in');
+const fadeObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) { e.target.classList.add('visible'); fadeObs.unobserve(e.target); }
   });
+}, { threshold: 0.1 });
+faders.forEach(f => fadeObs.observe(f));
 
+function updateClock() {
+  const vn = document.getElementById('tz-vn');
+  if(vn) {
+    const now = new Date();
+    const vnTime = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Asia/Ho_Chi_Minh', hour: '2-digit', minute: '2-digit', hour12: false
+    }).format(now);
+    vn.textContent = vnTime;
+  }
+}
+updateClock(); setInterval(updateClock, 30000);
+
+document.querySelectorAll('#hero .fade-in').forEach(el => {
+  setTimeout(() => el.classList.add('visible'), 100);
+});
 </script>
-
 </body>
 </html>
